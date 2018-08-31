@@ -3,7 +3,7 @@
 // serverPort = port where node is hosted
 
 export let config = {
-  serverHost: 'http://localhost',
-  // serverHost: 'http://nodejs-test-nodejs-mongodb-test.a3c1.starter-us-west-1.openshiftapps.com',
-  serverPort: 3030
+  // serverHost: 'http://localhost',
+  serverHost: 'http://nodejs-test-nodejs-mongodb-test.a3c1.starter-us-west-1.openshiftapps.com',
+  serverPort: 80
 };
