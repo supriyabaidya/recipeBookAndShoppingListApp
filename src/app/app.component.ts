@@ -19,6 +19,7 @@ export class AppComponent {
   featureType = 'shopping_list';
 
   url = config.serverHost + ':' + config.serverPort + '/test';
+
   message: string;
 
   constructor(private http: Http, private restApi: RestApiService) {
