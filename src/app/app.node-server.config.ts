@@ -5,5 +5,5 @@
 export let config = {
   // serverHost: 'http://localhost',
   serverHost: 'https://my-node-mongodb-test.193b.starter-ca-central-1.openshiftapps.com',
-  serverPort: 80
+  serverPort: 443
 };
