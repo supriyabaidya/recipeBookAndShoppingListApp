@@ -24,8 +24,8 @@ const appRoutes: Routes = [
   {path: 'shopping-list', component: ShoppingListComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'not-found', redirectTo: '/recipes'},
-  {path: '**', redirectTo: '/not-found'}
+  // {path: 'not-found', redirectTo: '/recipes'},
+  {path: '**', redirectTo: '/recipes'}
 ];
 
 @NgModule({
