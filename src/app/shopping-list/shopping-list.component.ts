@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
-import {forEach} from '@angular/router/src/utils/collection';
 import {ShoppingListService} from './shopping-list.service';
 
 @Component({
@@ -22,16 +21,15 @@ export class ShoppingListComponent implements OnInit {
     //     // this.ingredients.push(ingredient);
     //   }
     // );
-    this.shoppingListService.ingredientCleared.subscribe(
-      () => {
-        this.ingredients = [];
-      }
-    );
 
     this.shoppingListService.ingredientsChanged.subscribe(
       (ingredients: Ingredient[]) => {
         this.ingredients = ingredients;
       }
     );
+  }
+
+  onEditItem(index: number) {
+    this.shoppingListService.startedEditing.next(index);
   }
 }

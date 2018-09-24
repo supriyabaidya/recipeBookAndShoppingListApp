@@ -6,9 +6,9 @@ import {Subject} from 'rxjs';
 export class ShoppingListService {
   ingredientsChanged = new Subject<Ingredient[]>(); // changed from EventEmitter to Subject
   // allIngredientsChanged = new EventEmitter<Ingredient[]>();
+  startedEditing = new Subject<number>();
 
   ingredientAdded = new EventEmitter<Ingredient>();
-  ingredientCleared = new EventEmitter();
   private ingredients: Ingredient[] = [
     new Ingredient('egg', 2),
     new Ingredient('milk', 100),
@@ -33,5 +33,19 @@ export class ShoppingListService {
     console.log('after Add');
     console.log(this.ingredients);
     this.ingredientsChanged.next(this.ingredients.slice()); // changed from emit to next
+  }
+
+  getIngredient(index: number) {
+    return this.ingredients[index];
+  }
+
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
