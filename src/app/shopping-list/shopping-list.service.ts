@@ -18,18 +18,13 @@ export class ShoppingListService {
   }
 
   add(ingregient: Ingredient) {
-    console.log('add');
     this.ingredients.push(ingregient);
     this.ingredientsChanged.next(this.ingredients.slice()); // changed from emit to next
   }
 
   addAll(ingregients: Ingredient[]) {
-    console.log('addAll');
-    console.log(this.ingredients);
     this.ingredients.push(...ingregients);
 
-    console.log('after Add');
-    console.log(this.ingredients);
     this.ingredientsChanged.next(this.ingredients.slice()); // changed from emit to next
   }
 
