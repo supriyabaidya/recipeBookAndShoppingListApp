@@ -11,6 +11,7 @@ import {ShoppingListService} from '../shopping-list/shopping-list.service';
 import {RecipeService} from '../recipes/recipe.service';
 import {RestApiService} from '../rest-api.service';
 import {AuthService} from '../auth/auth.service';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {AuthService} from '../auth/auth.service';
     FormsModule,
     NgbModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   exports: [
     AppRoutingModule,
