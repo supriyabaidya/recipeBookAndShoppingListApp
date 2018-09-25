@@ -1,5 +1,4 @@
-<app-header
-  (featureSelected)="onFeatureSelected($event)"></app-header>
+<app-header></app-header>
 <div>
   <button class="btn btn-default" (click)="serverTest()">server test deprecated</button>
   <button class="btn btn-default" (click)="serverTestNew()">server test new</button>
@@ -8,10 +7,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <!--<app-recipes></app-recipes>-->
-      <!--<app-shopping-list></app-shopping-list>-->
-      <!--<app-recipes *ngIf="featureType==='recipes'"></app-recipes>-->
-      <!--<app-shopping-list *ngIf="featureType==='shopping_list'"></app-shopping-list>-->
 
       <router-outlet></router-outlet>
 

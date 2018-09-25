@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 
+import {Subscription} from 'rxjs';
+
 import {Ingredient} from '../../shared/ingredient.model';
 import {ShoppingListService} from '../shopping-list.service';
-import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -24,23 +25,18 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.startedEditingSubscription = this.shoppingListService.startedEditing
       .subscribe((index: number) => {
-        console.log(index);
+        // console.log(index);
         this.editMode = true;
         this.editedItemIndex = index;
         this.editedItem = this.shoppingListService.getIngredient(index);
 
-        console.log(this.editMode);
-        console.log(this.form);
+        // console.log(this.editMode);
+        // console.log(this.form);
         this.form.setValue({
           name: this.editedItem.name,
           amount: this.editedItem.amount
         });
       });
-  }
-
-  add(name: HTMLInputElement, amount: HTMLInputElement) {
-    this.shoppingListService.add(new Ingredient(name.value, amount.valueAsNumber));
-    // this.ingredientAdded.emit(new Ingredient(name.value, amount.valueAsNumber));
   }
 
   onSubmit(form: NgForm) {
@@ -69,5 +65,4 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.startedEditingSubscription.unsubscribe();
   }
-
 }

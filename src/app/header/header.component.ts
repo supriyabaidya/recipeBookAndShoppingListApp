@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
 import {Http, Response} from '@angular/http';
+import {Router} from '@angular/router';
+
 import {RecipeService} from '../recipes/recipe.service';
 import {Recipe} from '../recipes/recipe.model';
 import {AuthService} from '../auth/auth.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,14 +12,10 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent {
 
-  constructor(private http: Http, private recipeService: RecipeService, private authService: AuthService, private router: Router) {
+  navbarCollapsed = true;
+
+  constructor(private http: Http, private recipeService: RecipeService, public authService: AuthService, private router: Router) {
   }
-
-  // @Output() featureSelected = new EventEmitter<string>();
-
-  // onSelect(feature: string) {
-  //   this.featureSelected.emit(feature);
-  // }
 
   onSaveData() {
     const token = this.authService.getToken();
